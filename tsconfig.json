@@ -1,0 +1,16 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": [
+    "dist",
+    "node_modules",
+    "work",
+    "test-results",
+    "playwright-report"
+  ],
+  "compilerOptions": {
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
+  }
+}

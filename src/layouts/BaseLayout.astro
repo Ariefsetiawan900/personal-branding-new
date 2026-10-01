@@ -1,0 +1,61 @@
+---
+import '../styles/global.css';
+import profileImage from '../assets/profile.png';
+import { profile } from '../data/profile';
+import { getSiteConfig } from '../config/site';
+
+const site = getSiteConfig();
+const title = 'Arief Setiawan | Fullstack Developer';
+const description = 'Personal Web Arief Setiawan';
+const canonical = `${site.url}/`;
+const ogImage = new URL(profileImage.src, canonical).toString();
+const jsonLd = JSON.stringify([
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: profile.name,
+    jobTitle: profile.role,
+    url: canonical,
+    image: ogImage,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: title,
+    url: canonical,
+  },
+]).replaceAll('<', '\\u003c');
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#efa2b4" />
+    <meta name="msapplication-navbutton-color" content="#efa2b4" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#efa2b4" />
+    {!site.indexable && <meta name="robots" content="noindex,nofollow" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon/letter-a.png" type="image/png" />
+    <link rel="stylesheet" href="/font-awesome.css" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <script type="application/ld+json" set:html={jsonLd} />
+  </head>
+  <body>
+    <slot />
+    <script>
+      import '../scripts/main';
+    </script>
+  </body>
+</html>

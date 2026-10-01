@@ -1,0 +1,122 @@
+[
+  {
+    "width": 1440,
+    "fontLoaded": true,
+    "errors": [],
+    "axe": [
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "targets": [
+          [
+            ".nav-toggler"
+          ]
+        ]
+      },
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "targets": [
+          [
+            ".social-links > a[target=\"_blank\"]:nth-child(1)"
+          ],
+          [
+            "a[target=\"_blank\"]:nth-child(2)"
+          ],
+          [
+            "a[target=\"_blank\"]:nth-child(3)"
+          ]
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "targets": [
+          [
+            "#contact"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "width": 768,
+    "fontLoaded": true,
+    "errors": [],
+    "axe": [
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "targets": [
+          [
+            ".nav-toggler"
+          ]
+        ]
+      },
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "targets": [
+          [
+            ".social-links > a[target=\"_blank\"]:nth-child(1)"
+          ],
+          [
+            "a[target=\"_blank\"]:nth-child(2)"
+          ],
+          [
+            "a[target=\"_blank\"]:nth-child(3)"
+          ]
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "targets": [
+          [
+            "#contact"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "fontLoaded": true,
+    "errors": [],
+    "axe": [
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "targets": [
+          [
+            ".nav-toggler"
+          ]
+        ]
+      },
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "targets": [
+          [
+            ".social-links > a[target=\"_blank\"]:nth-child(1)"
+          ],
+          [
+            "a[target=\"_blank\"]:nth-child(2)"
+          ],
+          [
+            "a[target=\"_blank\"]:nth-child(3)"
+          ]
+        ]
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "targets": [
+          [
+            "#contact"
+          ]
+        ]
+      }
+    ]
+  }
+]

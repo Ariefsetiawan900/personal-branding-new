@@ -1,0 +1,42 @@
+---
+import type { Project } from '../data/types';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<div class="description">
+  <p>{project.description}</p>
+</div>
+<div class="general-info">
+  <ul>
+    <li>
+      Created - <span>{project.created}</span>
+    </li>
+    <li>
+      technologies used - <span>{project.technologies}</span>
+    </li>
+    <li>
+      Role - <span>{project.role}</span>
+    </li>
+    <li>
+      Source Code -{' '}
+      <span>
+        <a href={project.sourceUrl} target="_blank" rel="noopener noreferrer">
+          Click Me
+        </a>
+      </span>
+    </li>
+    <li>
+      View Online -{' '}
+      <span>
+        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+          {project.liveLabel}
+        </a>
+      </span>
+    </li>
+  </ul>
+</div>

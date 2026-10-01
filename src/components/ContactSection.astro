@@ -1,0 +1,49 @@
+---
+import { profile } from '../data/profile';
+import { social } from '../data/social';
+---
+
+<section
+  class="contact-section sec-padding"
+  id="contact"
+  aria-labelledby="contact-title"
+  tabindex="-1"
+>
+  <div class="container">
+    <div class="row">
+      <div class="section-title">
+        <h2 id="contact-title">contact me</h2>
+      </div>
+    </div>
+    <div class="row">
+      <!-- The contact form remains inactive; retain the desktop half-width column. -->
+      <div class="contact-info">
+        <div class="contact-info-item">
+          <h3>Email</h3>
+          <p>{profile.email}</p>
+        </div>
+        <div class="contact-info-item">
+          <h3>Phone</h3>
+          <p>{profile.phone}</p>
+        </div>
+        <div class="contact-info-item">
+          <h3>Follow Me</h3>
+          <div class="social-links">
+            {social.map((link) => (
+              <>
+                <a
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={link.name}
+                >
+                  <i class={link.iconClass} aria-hidden="true" />
+                </a>{' '}
+              </>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

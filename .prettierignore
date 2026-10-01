@@ -1,0 +1,16 @@
+node_modules
+.pnpm-store
+dist
+.astro
+work
+Assets
+public
+index.html
+404.html
+pnpm-lock.yaml
+tests/visual/baseline
+tests/visual/legacy
+tests/visual/__screenshots__
+playwright-report
+test-results
+coverage

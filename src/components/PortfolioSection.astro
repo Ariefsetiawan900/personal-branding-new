@@ -1,0 +1,30 @@
+---
+import { projects } from '../data/projects';
+import ProjectCard from './ProjectCard.astro';
+import ProjectDetails from './ProjectDetails.astro';
+---
+
+<section
+  class="portofolio-section sec-padding"
+  id="portofolio"
+  aria-labelledby="portofolio-title"
+  tabindex="-1"
+>
+  <div class="container">
+    <div class="row">
+      <div class="section-title">
+        <h2 id="portofolio-title">recent Work</h2>
+      </div>
+    </div>
+    <div class="row">
+      {projects.map((project) => (
+        <ProjectCard project={project} />
+      ))}
+    </div>
+  </div>
+  {projects.map((project) => (
+    <template id={`project-${project.id}`}>
+      <ProjectDetails project={project} />
+    </template>
+  ))}
+</section>

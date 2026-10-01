@@ -1,0 +1,106 @@
+---
+import { Image } from 'astro:assets';
+import profileImage from '../assets/profile.png';
+import { education } from '../data/education';
+import { experience } from '../data/experience';
+import { profile } from '../data/profile';
+import { skills } from '../data/skills';
+import Timeline from './Timeline.astro';
+---
+
+<section
+  class="about-section sec-padding"
+  id="about"
+  aria-labelledby="about-title"
+  tabindex="-1"
+>
+  <div class="container">
+    <div class="row">
+      <div class="section-title">
+        <h2 id="about-title">About Me</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="about-img">
+        <div class="img-box">
+          <Image
+            src={profileImage}
+            alt={profile.name}
+            width={500}
+            height={500}
+            widths={[300, 380, 500]}
+            sizes="(max-width: 420px) calc(100vw - 68px), (max-width: 767px) 374px, (max-width: 991px) calc(40vw - 49px), (max-width: 1135px) calc(40vw - 81px), 374px"
+            layout="none"
+            format="webp"
+            quality={100}
+            loading="lazy"
+          />
+        </div>
+      </div>
+      <div class="about-text">
+        <p>{profile.about}</p>
+        <h3>skills</h3>
+        <div class="skills">
+          {skills.map((skill) => (
+            <div class="skill-item">{skill}</div>
+          ))}
+        </div>
+        <div class="about-tabs" role="tablist" aria-label="Background">
+          <button
+            type="button"
+            class="tab-item active"
+            data-target="#education"
+            id="education-tab"
+            role="tab"
+            aria-controls="education"
+            aria-selected="true"
+            tabindex="0"
+          >
+            Education
+          </button>{' '}
+          <button
+            type="button"
+            class="tab-item"
+            data-target="#experience"
+            id="experience-tab"
+            role="tab"
+            aria-controls="experience"
+            aria-selected="false"
+            tabindex="-1"
+          >
+            Experience
+          </button>
+        </div>
+        <div
+          class="tab-content active"
+          id="education"
+          role="tabpanel"
+          aria-labelledby="education-tab"
+          tabindex="0"
+        >
+          <Timeline entries={education} />
+        </div>
+        <div
+          class="tab-content"
+          id="experience"
+          role="tabpanel"
+          aria-labelledby="experience-tab"
+          tabindex="0"
+        >
+          <Timeline entries={experience} />
+        </div>
+        <a
+          href={profile.cvPath}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn"
+        >
+          Download CV
+        </a>{' '}
+        <a href="#contact" class="btn link-item">
+          Contact Me
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

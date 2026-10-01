@@ -1,0 +1,39 @@
+---
+import { Image } from 'astro:assets';
+import type { Project } from '../data/types';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<div class="portofolio-item">
+  <div class="portofolio-item-thumbnail">
+    <Image
+      src={project.image}
+      alt={project.imageAlt}
+      width={1280}
+      height={689}
+      widths={[900, 1280]}
+      sizes="(min-width: 992px) 1280px, 900px"
+      layout="none"
+      format="webp"
+      quality={100}
+      loading="lazy"
+    />
+  </div>
+  <h3 class="portofolio-item-title" id={`project-title-${project.id}`}>
+    {project.title}
+  </h3>
+  <button
+    type="button"
+    class="btn view-project-btn"
+    data-project-id={project.id}
+    aria-haspopup="dialog"
+    aria-label={`View Project: ${project.title}`}
+  >
+    View Project
+  </button>
+</div>

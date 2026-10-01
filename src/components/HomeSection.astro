@@ -1,0 +1,43 @@
+---
+import { Image } from 'astro:assets';
+import profileImage from '../assets/profile.png';
+import { profile } from '../data/profile';
+---
+
+<section
+  class="home-section align-items-center active"
+  id="home"
+  aria-labelledby="home-title"
+  tabindex="-1"
+>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="home-text">
+        <p>{profile.greeting}</p>
+        <h1 id="home-title">{profile.name}</h1>
+        <h2>{profile.role}</h2>
+        <a href="#about" class="btn link-item">
+          More About Me
+        </a>
+        <!-- The legacy Portfolio shortcut remains inactive. -->
+      </div>
+      <div class="home-img">
+        <div class="img-box">
+          <Image
+            src={profileImage}
+            alt={profile.name}
+            width={500}
+            height={500}
+            widths={[300, 360, 500]}
+            sizes="(max-width: 991px) 284px, 344px"
+            layout="none"
+            format="webp"
+            quality={100}
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

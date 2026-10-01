@@ -1,0 +1,47 @@
+{
+  "name": "arief-setiawan-personal-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.0.6",
+  "engines": {
+    "node": ">=24.15.0 <25"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "lint": "eslint . --max-warnings=0",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "astro check",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test --project=chromium --project=firefox --project=webkit",
+    "test:visual": "playwright test --project=visual-chromium",
+    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build"
+  },
+  "dependencies": {
+    "astro": "7.3.5",
+    "sharp": "0.35.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@axe-core/playwright": "4.13.0",
+    "@eslint/js": "9.39.5",
+    "@playwright/test": "1.63.0",
+    "@types/node": "24.19.0",
+    "@types/pngjs": "6.0.5",
+    "eslint": "9.39.5",
+    "eslint-plugin-astro": "1.7.0",
+    "eslint-plugin-jsx-a11y": "6.10.2",
+    "globals": "17.12.0",
+    "pixelmatch": "7.2.0",
+    "pngjs": "7.0.0",
+    "prettier": "3.9.9",
+    "prettier-plugin-astro": "1.1.0",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.71.0",
+    "vitest": "5.0.2"
+  }
+}

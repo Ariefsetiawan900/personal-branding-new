@@ -1,0 +1,28 @@
+---
+import type { TimelineEntry } from '../data/types';
+
+interface Props {
+  entries: readonly TimelineEntry[];
+}
+
+const { entries } = Astro.props;
+---
+
+<div class="timeline">
+  {entries.map((entry) => (
+    <div class="timeline-item">
+      <span class="date">{entry.date}</span>
+      <h4>
+        {entry.title}
+        {entry.separator}
+        <span>{entry.organization}</span>
+      </h4>
+      {entry.paragraphs.map((paragraph, index) => (
+        <>
+          {index > 0 && <br />}
+          <p>{paragraph}</p>
+        </>
+      ))}
+    </div>
+  ))}
+</div>

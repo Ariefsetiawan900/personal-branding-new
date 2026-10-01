@@ -1,0 +1,48 @@
+name: Quality checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: pnpm/action-setup@v4
+        with:
+          version: '11.0.6'
+      - name: Install locked dependencies
+        run: pnpm install --frozen-lockfile
+      - run: pnpm format:check
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm test
+      - run: pnpm build
+      - name: Install browser engines
+        run: pnpm exec playwright install --with-deps chromium firefox webkit
+      - name: Functional and accessibility tests
+        run: pnpm test:e2e
+      - name: Compare migration against original website
+        run: pnpm test:visual
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-results
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 14

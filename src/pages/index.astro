@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageLoader from '../components/PageLoader.astro';
+import BackgroundDecoration from '../components/BackgroundDecoration.astro';
+import Header from '../components/Header.astro';
+import HomeSection from '../components/HomeSection.astro';
+import AboutSection from '../components/AboutSection.astro';
+import PortfolioSection from '../components/PortfolioSection.astro';
+import ContactSection from '../components/ContactSection.astro';
+import ProjectModal from '../components/ProjectModal.astro';
+---
+
+<BaseLayout>
+  <PageLoader />
+  <BackgroundDecoration />
+  <div class="overlay" aria-hidden="true"></div>
+  <main class="main">
+    <Header />
+    <HomeSection />
+    <AboutSection />
+    <PortfolioSection />
+    <ContactSection />
+  </main>
+  <ProjectModal />
+</BaseLayout>
